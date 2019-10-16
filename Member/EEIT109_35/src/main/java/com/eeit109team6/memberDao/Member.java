@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import com.eeit109team6.memberDetailDao.MemberDetail;
 // Test From Git Third
 //andy is a handsome boy.
+//test git abc
 @Component(value = "member")
 @Scope(value = "prototype")
 @Entity
