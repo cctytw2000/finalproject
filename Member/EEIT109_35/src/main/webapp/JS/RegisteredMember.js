@@ -27,7 +27,7 @@ function check_username() {
 	var acc_length = acc.length;
 	var flag4 = false;
 	if (acc == "") {
-		document.getElementById("msg").innerHTML = "<img src='Images/noway.jpg'>不可空白"
+		document.getElementById("msg").innerHTML = "<img style='margin-left: -16px' src='Images/noway.jpg'>"
 	} else if (acc_length >= 2) {
 		for (let i = 0; i < acc_length; i++) {
 
@@ -40,13 +40,13 @@ function check_username() {
 			}
 		}
 		if (flag4) {
-			document.getElementById("msg").innerHTML = "<img src='Images/yes.jpg'>格式符合"
+			document.getElementById("msg").innerHTML = "<img style='margin-left: -16px' src='Images/yes.jpg'>"
 			username_check_val = true
 		} else {
-			document.getElementById("msg").innerHTML = "<img src='Images/noway.jpg'>必須為中文字"
+			document.getElementById("msg").innerHTML = "<img style='margin-left: -16px' src='Images/noway.jpg'>"
 		}
 	} else {
-		document.getElementById("msg").innerHTML = "<img src='Images/noway.jpg'>至少兩個字"
+		document.getElementById("msg").innerHTML = "<img style='margin-left: -16px' src='Images/noway.jpg'>"
 
 	}
 

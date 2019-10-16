@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
 function check_idnumber() {
 	if (document.getElementById("idnumber").value != "") {
 		idnumber_check_val = true;
-		document.getElementById("idnumber_password").innerHTML = "<img src='../Images/yes.jpg'>格式符合"
+		document.getElementById("idnumber_password").innerHTML = "<img style='margin-left: -16px' src='../Images/yes.jpg'>"
 	} else {
-		document.getElementById("idnumber_password").innerHTML = "<img src='../Images/noway.jpg'>不可空白"
+		document.getElementById("idnumber_password").innerHTML = "<img style='margin-left: -16px' src='../Images/noway.jpg'>"
 
 	}
 }
@@ -32,18 +32,18 @@ function check_idnumber() {
 function check_address() {
 	if (document.getElementById("alladdress").value != "") {
 		address_check_val = true;
-		document.getElementById("address_password").innerHTML = "<img src='../Images/yes.jpg'>格式符合"
+		document.getElementById("address_password").innerHTML = "<img style='margin-left: -16px' src='../Images/yes.jpg'>"
 	} else {
-		document.getElementById("address_password").innerHTML = "<img src='../Images/noway.jpg'>不可空白"
+		document.getElementById("address_password").innerHTML = "<img style='margin-left: -16px' src='../Images/noway.jpg'>"
 
 	}
 }
 function check_birth() {
 	if (document.getElementById("date").value != "") {
 		birth_check_val = true;
-		document.getElementById("date_password").innerHTML = "<img src='../Images/yes.jpg'>格式符合"
+		document.getElementById("date_password").innerHTML = "<img style='margin-left: -16px' src='../Images/yes.jpg'>"
 	} else {
-		document.getElementById("date_password").innerHTML = "<img src='../Images/noway.jpg'>不可空白"
+		document.getElementById("date_password").innerHTML = "<img style='margin-left: -16px' src='../Images/noway.jpg'>"
 
 	}
 

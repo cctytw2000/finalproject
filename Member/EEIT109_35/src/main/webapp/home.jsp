@@ -37,8 +37,9 @@
             <c:choose>
                 <c:when test="${sessionScope.account != Null}">
                     <div class="user-panel">
-                        <span style="font-size:18px" class="welcome">${sessionScope.username} 您好!</span>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="./LogOutMember.do">登出</a>
-                        
+                        <span style="font-size:18px" class="welcome">${sessionScope.username}
+                            您好!</span>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="./LogOutMember.do">登出</a>
+
                     </div>
                 </c:when>
                 <c:otherwise>
@@ -67,32 +68,34 @@
                             <form action="RegisteredMember.do" method="post">
 
                                 <fieldset>
-                                    <legend>
-                                        申請帳號<em>必填</em>
-                                    </legend>
-                                    <div class="div1">
-                                        <label class='label1'>帳號:</label><input type="text" id="account"
-                                            name="account"><i style="margin:-15px" id="check"
-                                            class="fas fa-clipboard-check"></i><span style="margin-left:30px"
-                                            id="account_msg"></span>
+
+
+                                    <div class="form-group">
+                                        <label for="account">帳號:</label>
+                                        <input type="text" class="form-control" id="account" name="account" style="display:inline"><i
+                                            style="margin:-15px" id="check" class="fas fa-clipboard-check"></i><span
+                                            style="margin-left:30px" id="account_msg"></span>
                                     </div>
-                                    <div class="div1">
-                                        <label class='label1'>密碼:</label><input type="password" id="password"
-                                            name="password"><i style="margin:-20px" onclick="showHide();" id="eye"
+                                    <div class="form-group">
+                                        <label for="password">密碼:</label>
+                                        <input type="password" class="form-control" id="password" name="password" style="display:inline"><i
+                                            style="margin:-20px" onclick="showHide();" id="eye"
                                             class="fas fa-eye"></i><span style="margin-left:30px"
                                             id="msg_password"></span>
-
-                                        </button>
                                         <h6 style="color: gray; font-size: 8px">(1.不可空白，2.至少六個字包含英文字母，數字，特殊字元(!@#$%^&*))
                                         </h6>
                                     </div>
 
-                                    <div class="div1">
-                                        <label class='label1'>姓名:</label><input type="text" id="username"
-                                            name="username"><span id="msg"></span>
+
+
+                                    <div class="form-group">
+                                        <label for="username">姓名:</label>
+                                        <input type="password" class="form-control" id="username" name="username"><span
+                                            id="msg"></span>
                                         <h6 style="color: gray; font-size: 8px">(1.不可空白，2.至少兩個字以上，3.必須為中文字)</h6>
                                     </div>
-                                    <div style="margin: auto auto; width: 60%">
+
+                                    <div style="width: 90%;margin-left:30px">
                                         <button type="button" style="background-color: #0066FF" class="btn btn-facebook"
                                             onclick="FBRestistered();">
                                             <i class="fab fa-facebook-f fa-lg"></i> Facebook註冊
@@ -102,13 +105,18 @@
                                             <i class="fab fa-google-plus-g fa-lg"></i> Google註冊
                                         </button>
                                     </div>
+
+
+
+
+
                                     <script async defer src="https://apis.google.com/js/api.js"
                                         onload="this.onload=function(){};HandleGoogleApiLibrary()"
                                         onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-                                        
-                                        
-                                        
-                                        
+
+
+
+
                                     <div id="submit" class="modal-footer" style="text-align: center">
                                         <button class="btn btn-primary" type="submit" disabled>註冊</button>
                                         <button class="btn btn-secondary" type="reset">清除</button>
@@ -119,8 +127,8 @@
                                             type="reset" value="清除">
                                     </div>
                                     -->
-                                    
-                                    
+
+
                                 </fieldset>
                             </form>
                         </div>
@@ -140,35 +148,28 @@
                         <div class="modal-body">
                             <form action="LoginMember.do" method="post">
                                 <fieldset>
-                           
-                           
-                           
-                           
-                           
-                           <div class="form-group">
-  <label for="usr">Name:</label>
-  <input type="text" class="form-control" id="loginaccount" name="loginaccount"><span id="passowrd_msg"></span>
-</div>
-<div class="form-group">
-  <label for="pwd">Password:</label>
-  <input type="password" class="form-control" id="loginpassword" name="loginpassword"><span id="passowrd_msg"></span>
-</div>
-                           
 
-                           <!--  
-                                    <div class="div1">
-                                        <label class='label1'>帳號:</label><input type="text" id="loginaccount"
-                                            name="loginaccount"><span id="account_msg"></span>
+
+
+
+
+                                    <div class="form-group">
+                                        <label for="usr">Name:</label>
+                                        <input type="text" class="form-control" id="loginaccount"
+                                            name="loginaccount"><span id="passowrd_msg"></span>
                                     </div>
-                                    <div class="div1">
-                                        <label class='label1'>密碼:</label><input type="password" id="loginpassword"
+                                    <div class="form-group">
+                                        <label for="pwd">Password:</label>
+                                        <input type="password" class="form-control" id="loginpassword"
                                             name="loginpassword"><span id="passowrd_msg"></span>
                                     </div>
-                                    -->
-                                    
-                                    
-                                    
-                                    <div style="margin: auto auto; width: 60%">
+
+
+
+
+
+
+                                    <div style="width: 90%;margin-left:30px">
                                         <button name="FaceBook" type="button" style="background-color: #0066FF"
                                             class="btn btn-facebook" onclick="FBLogin();">
                                             <i class="fab fa-facebook-f fa-lg"></i> Facebook登入
@@ -181,15 +182,15 @@
                                     <script async defer src="https://apis.google.com/js/api.js"
                                         onload="this.onload=function(){};HandleGoogleApiLibrary()"
                                         onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-                                        
-                                        
-                                        
+
+
+
                                     <div id="submit" class="modal-footer" style="text-align: center">
-                                        <input name="login" class="btn btn-primary"  type="submit" value="登入"> <input class="btn btn-secondary"  name="fergetpwd"
-                                            type="submit" value="忘記密碼">
+                                        <input name="login" class="btn btn-primary" type="submit" value="登入"> <input
+                                            class="btn btn-secondary" name="fergetpwd" type="submit" value="忘記密碼">
                                     </div>
-                                    
-                                    
+
+
                                 </fieldset>
                             </form>
                         </div>
@@ -207,48 +208,48 @@
                 <i class="fa fa-bars"></i>
             </div>
 
-                    <c:choose>
+            <c:choose>
                 <c:when test="${sessionScope.account != Null}">
-                  <!-- site menu -->
-            <nav class="main-menu">
-                <ul>
-                    <li><a href="home.jsp">Home</a></li>
-                    <li><a href="review.html">Games</a></li>
-                    <li><a href="categories.html">Blog</a></li>
-                    <li><a href="community.html">Forums</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="contact.html">會員中心</a></li>
-                </ul>
-            </nav>
+                    <!-- site menu -->
+                    <nav class="main-menu">
+                        <ul>
+                            <li><a href="home.jsp">Home</a></li>
+                            <li><a href="review.html">Games</a></li>
+                            <li><a href="categories.html">Blog</a></li>
+                            <li><a href="community.html">Forums</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="contact.html">會員中心</a></li>
+                        </ul>
+                    </nav>
                 </c:when>
                 <c:otherwise>
-                     <!-- site menu -->
-            <nav class="main-menu">
-                <ul>
-                    <li><a href="home.jsp">Home</a></li>
-                    <li><a href="review.html">Games</a></li>
-                    <li><a href="categories.html">Blog</a></li>
-                    <li><a href="community.html">Forums</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+                    <!-- site menu -->
+                    <nav class="main-menu">
+                        <ul>
+                            <li><a href="home.jsp">Home</a></li>
+                            <li><a href="review.html">Games</a></li>
+                            <li><a href="categories.html">Blog</a></li>
+                            <li><a href="community.html">Forums</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
                 </c:otherwise>
-                </c:choose>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          
+            </c:choose>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
     </header>
     <!-- Header section end -->
