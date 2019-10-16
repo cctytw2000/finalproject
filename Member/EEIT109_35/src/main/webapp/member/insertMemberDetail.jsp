@@ -44,7 +44,7 @@ color : white ;
     <header class="header-section">
         <div class="container">
             <!-- logo -->
-            <a class="site-logo" href="index.html">
+            <a class="site-logo" href="../home.jsp">
                 <img src="../Images/logo.png" alt="">
             </a>
 
@@ -127,9 +127,7 @@ color : white ;
 			<input type="hidden" name="token" value="${param.token}">
 						</c:when>
 						<c:otherwise>
-					<input type="hidden" name="account" value="${param.account}"> 
-					<input type="hidden" name="username" value="${param.username}">
-					<input type="hidden" name="type" value="${param.type}">
+					<input type="hidden" name="memberID" value="${param.id}"> 
 						</c:otherwise>
 
 					</c:choose>

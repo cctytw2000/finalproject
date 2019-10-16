@@ -4,25 +4,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 
-	<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-<link rel="stylesheet" href="CSS/bootstrap.min.css" />
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
     <link rel="stylesheet" href="CSS/font-awesome.min.css" />
     <link rel="stylesheet" href="CSS/owl.carousel.css" />
     <link rel="stylesheet" href="CSS/style.css" />
     <link rel="stylesheet" href="CSS/animate.css" />
-
-	<script src="JS/login.js"></script>
-	<script src="JS/RegisteredMember.js"></script>
-	<script src="JS/FBGoogleRegistered.js"></script>
-	<script src="https://kit.fontawesome.com/685268963f.js"></script>
-	<script src="JS/FBGoogleLogin.js"></script>
+    <script src="JS/login.js"></script>
+    <script src="JS/RegisteredMember.js"></script>
+    <script src="JS/FBGoogleRegistered.js"></script>
+    <script src="https://kit.fontawesome.com/685268963f.js"></script>
+    <script src="JS/FBGoogleLogin.js"></script>
 </head>
-<body>
 
+<body>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -32,178 +31,188 @@
     <header class="header-section">
         <div class="container">
             <!-- logo -->
-            <a class="site-logo" href="index.html">
+            <a class="site-logo" href="home.jsp">
                 <img src="Images/logo.png" alt="">
             </a>
-            
-            
-            		<c:choose>
-							<c:when test="${sessionScope.account != Null}">
-							<div class="user-panel">
-								<a href="./MemberDetails.do">會員中心</a> / <a href="./LogOutMember.do">登出</a>
-								<span class="welcome">${sessionScope.username} 您好!</span>
-							</div>
-							</c:when>
-							<c:otherwise>
-								<div class="user-panel">
-	                				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">login</button> / 
-	                				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Register">Register</button>
-	                				
-	            				</div>
-							</c:otherwise>
+            <c:choose>
+                <c:when test="${sessionScope.account != Null}">
+                    <div class="user-panel">
+                        <span style="font-size:18px" class="welcome">${sessionScope.username} 您好!</span>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="./LogOutMember.do">登出</a>
+                        
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div class="user-panel">
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#login">login</button> /
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#Register">Register</button>
+                    </div>
+                </c:otherwise>
 
-					</c:choose>
-            
-            
-            
-            
-            
-            
-            
-             <div class="modal fade" id="Register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">註冊</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-         
-
-<form action="RegisteredMember.do" method="post">
-
-		<fieldset>
-			<legend>
-				申請帳號<em>必填</em>
-			</legend>
-			<div class="div1">
-				<label class='label1'>帳號:</label><input type="text" id="account" name="account"><i style="margin:-15px" id="check"
-					class="fas fa-clipboard-check"></i><span style="margin-left:30px"  id="account_msg"></span>
-			</div>
-			<div class="div1">
-				<label class='label1'>密碼:</label><input type="password" id="password" name="password"><i
-					style="margin:-20px" onclick="showHide();" id="eye" class="fas fa-eye"></i><span style="margin-left:30px" id="msg_password"></span>
-
-				</button>
-				<h6 style="color: gray; font-size: 8px">(1.不可空白，2.至少六個字包含英文字母，數字，特殊字元(!@#$%^&*))</h6>
-			</div>
-
-			<div class="div1">
-				<label class='label1'>姓名:</label><input type="text" id="username" name="username"><span id="msg"></span>
-				<h6 style="color: gray; font-size: 8px">(1.不可空白，2.至少兩個字以上，3.必須為中文字)</h6>
-			</div>
-
-			<div style="margin: auto auto; width: 60%">
-				<button type="button" style="background-color: #0066FF" class="btn btn-facebook" onclick="FBRestistered();">
-					<i class="fab fa-facebook-f fa-lg"></i> Facebook註冊
-				</button>
-				<button type="button" style="background-color: #FF3333" class="btn btn-google" onclick="GoogleRestistered();">
-					<i class="fab fa-google-plus-g fa-lg"></i> Google註冊
-				</button>
-			</div>
-						<script async defer src="https://apis.google.com/js/api.js"
-				onload="this.onload=function(){};HandleGoogleApiLibrary()"
-				onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-			<div id="submit" class="div1" style="text-align: center">
-				<button type="submit" disabled>註冊</button>
-
-			</div>
-		</fieldset>
-	</form>
+            </c:choose>
+            <div class="modal fade" id="Register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">註冊</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
 
 
+                            <form action="RegisteredMember.do" method="post">
 
+                                <fieldset>
+                                    <legend>
+                                        申請帳號<em>必填</em>
+                                    </legend>
+                                    <div class="div1">
+                                        <label class='label1'>帳號:</label><input type="text" id="account"
+                                            name="account"><i style="margin:-15px" id="check"
+                                            class="fas fa-clipboard-check"></i><span style="margin-left:30px"
+                                            id="account_msg"></span>
+                                    </div>
+                                    <div class="div1">
+                                        <label class='label1'>密碼:</label><input type="password" id="password"
+                                            name="password"><i style="margin:-20px" onclick="showHide();" id="eye"
+                                            class="fas fa-eye"></i><span style="margin-left:30px"
+                                            id="msg_password"></span>
 
-        </div>
-       
-      </div>
-    </div>
-  </div>
-            
-            
-            
-            
-              <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">登入</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          	<form action="LoginMember.do" method="post">
+                                        </button>
+                                        <h6 style="color: gray; font-size: 8px">(1.不可空白，2.至少六個字包含英文字母，數字，特殊字元(!@#$%^&*))
+                                        </h6>
+                                    </div>
 
-		<fieldset>
-			<legend>登入帳號</legend>
-			<div class="div1">
-				<label class='label1'>帳號:</label><input type="text" id="loginaccount" name="loginaccount"><span
-					id="account_msg"></span>
-			</div>
-			<div class="div1">
-				<label class='label1'>密碼:</label><input type="password" id="loginpassword" name="loginpassword"><span
-					id="passowrd_msg"></span>
-
-			</div>
-			<div style="margin: auto auto; width: 60%">
-				<button name="FaceBook" type="button" style="background-color: #0066FF" class="btn btn-facebook"
-					onclick="FBLogin();">
-					<i class="fab fa-facebook-f fa-lg"></i> Facebook登入
-				</button>
-				<button name="Google" type="button" style="background-color: #FF3333" class="btn btn-google"
-					onclick="GoogleLogin();">
-					<i class="fab fa-google-plus-g fa-lg"></i> Google登入
-				</button>
-			</div>
-			<script async defer src="https://apis.google.com/js/api.js"
-				onload="this.onload=function(){};HandleGoogleApiLibrary()"
-				onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-			
-			
-			
-			<div id="submit" class="div1" style="text-align: center">
-				<input name="login" type="submit" value="登入" > <input name="fergetpwd" type="submit"
-					value="忘記密碼">
-
-			</div>
-		</fieldset>
-	</form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">login</button>
-        </div>
-      </div>
-    </div>
-  </div>
-            
-            
-            
-            
-            
-            
+                                    <div class="div1">
+                                        <label class='label1'>姓名:</label><input type="text" id="username"
+                                            name="username"><span id="msg"></span>
+                                        <h6 style="color: gray; font-size: 8px">(1.不可空白，2.至少兩個字以上，3.必須為中文字)</h6>
+                                    </div>
+                                    <div style="margin: auto auto; width: 60%">
+                                        <button type="button" style="background-color: #0066FF" class="btn btn-facebook"
+                                            onclick="FBRestistered();">
+                                            <i class="fab fa-facebook-f fa-lg"></i> Facebook註冊
+                                        </button>
+                                        <button type="button" style="background-color: #FF3333" class="btn btn-google"
+                                            onclick="GoogleRestistered();">
+                                            <i class="fab fa-google-plus-g fa-lg"></i> Google註冊
+                                        </button>
+                                    </div>
+                                    <script async defer src="https://apis.google.com/js/api.js"
+                                        onload="this.onload=function(){};HandleGoogleApiLibrary()"
+                                        onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+                                    <div id="submit" class="div1" style="text-align: center">
+                                        <button type="submit" disabled>註冊</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">登入</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="LoginMember.do" method="post">
+                                <fieldset>
+                                    <legend>登入帳號</legend>
+                                    <div class="div1">
+                                        <label class='label1'>帳號:</label><input type="text" id="loginaccount"
+                                            name="loginaccount"><span id="account_msg"></span>
+                                    </div>
+                                    <div class="div1">
+                                        <label class='label1'>密碼:</label><input type="password" id="loginpassword"
+                                            name="loginpassword"><span id="passowrd_msg"></span>
+                                    </div>
+                                    <div style="margin: auto auto; width: 60%">
+                                        <button name="FaceBook" type="button" style="background-color: #0066FF"
+                                            class="btn btn-facebook" onclick="FBLogin();">
+                                            <i class="fab fa-facebook-f fa-lg"></i> Facebook登入
+                                        </button>
+                                        <button name="Google" type="button" style="background-color: #FF3333"
+                                            class="btn btn-google" onclick="GoogleLogin();">
+                                            <i class="fab fa-google-plus-g fa-lg"></i> Google登入
+                                        </button>
+                                    </div>
+                                    <script async defer src="https://apis.google.com/js/api.js"
+                                        onload="this.onload=function(){};HandleGoogleApiLibrary()"
+                                        onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+                                    <div id="submit" class="div1" style="text-align: center">
+                                        <input name="login" type="submit" value="登入"> <input name="fergetpwd"
+                                            type="submit" value="忘記密碼">
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- responsive -->
             <div class="nav-switch">
                 <i class="fa fa-bars"></i>
             </div>
-            <!-- site menu -->
+
+                    <c:choose>
+                <c:when test="${sessionScope.account != Null}">
+                  <!-- site menu -->
             <nav class="main-menu">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="home.jsp">Home</a></li>
+                    <li><a href="review.html">Games</a></li>
+                    <li><a href="categories.html">Blog</a></li>
+                    <li><a href="community.html">Forums</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html">會員中心</a></li>
+                </ul>
+            </nav>
+                </c:when>
+                <c:otherwise>
+                     <!-- site menu -->
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="home.jsp">Home</a></li>
                     <li><a href="review.html">Games</a></li>
                     <li><a href="categories.html">Blog</a></li>
                     <li><a href="community.html">Forums</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+                </c:otherwise>
+                </c:choose>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
         </div>
     </header>
     <!-- Header section end -->
-
-
     <!-- Hero section -->
     <section class="hero-section">
         <div class="hero-slider owl-carousel">
@@ -211,7 +220,9 @@
                 <div class="hs-text">
                     <div class="container">
                         <h2>The Best <span>Games</span> Out There</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada <br> lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. <br>Suspendisse cursus faucibus finibus.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada <br> lorem maximus
+                            mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. <br>Suspendisse cursus
+                            faucibus finibus.</p>
                         <a href="#" class="site-btn">Read More</a>
                     </div>
                 </div>
@@ -220,7 +231,9 @@
                 <div class="hs-text">
                     <div class="container">
                         <h2>The Best <span>Games</span> Out There</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada <br> lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. <br>Suspendisse cursus faucibus finibus.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada <br> lorem maximus
+                            mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. <br>Suspendisse cursus
+                            faucibus finibus.</p>
                         <a href="#" class="site-btn">Read More</a>
                     </div>
                 </div>
@@ -228,8 +241,6 @@
         </div>
     </section>
     <!-- Hero section end -->
-
-
     <!-- Latest news section -->
     <div class="latest-news-section">
         <div class="ln-title">重要消息</div>
@@ -423,7 +434,8 @@
                         </div>
                         <div class="rgi-content">
                             <h5>Suspendisse ut justo tem por, rutrum</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit amet, consectetur elit. </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit amet, consectetur
+                                elit. </p>
                             <a href="#" class="comment">3 Comments</a>
                             <div class="rgi-extra">
                                 <div class="rgi-star"><img src="Images/icons/star.png" alt=""></div>
@@ -439,7 +451,8 @@
                         </div>
                         <div class="rgi-content">
                             <h5>Susce pulvinar metus nulla, vel facilisis sem </h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit amet, consectetur elit. </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit amet, consectetur
+                                elit. </p>
                             <a href="#" class="comment">3 Comments</a>
                             <div class="rgi-extra">
                                 <div class="rgi-star"><img src="Images/icons/star.png" alt=""></div>
@@ -455,7 +468,8 @@
                         </div>
                         <div class="rgi-content">
                             <h5>Suspendisse ut justo tem por, rutrum</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit amet, consectetur elit. </p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit amet, consectetur
+                                elit. </p>
                             <a href="#" class="comment">3 Comments</a>
                             <div class="rgi-extra">
                                 <div class="rgi-star"><img src="Images/icons/star.png" alt=""></div>
@@ -603,7 +617,7 @@
                     </div>
                 </div>
 
-                
+
                 <div class="col-lg-3 col-md-6">
                     <div class="review-item">
                         <div class="review-cover set-bg" data-setbg="Images/review/4.jpg">
@@ -639,7 +653,8 @@
                 Copyright &copy;
                 <script>
                     document.write(new Date().getFullYear());
-                </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                </script> All rights reserved | This template is made with <i class="fa fa-heart-o"
+                    aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
         </div>

@@ -35,6 +35,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.eeit109team6.memberDao.IMemberDao;
 import com.eeit109team6.memberDao.Member;
+import com.eeit109team6.memberDetailDao.MemberDetail;
 
 @WebServlet("/RegisteredMember")
 public class RegisteredMember extends HttpServlet {
@@ -54,14 +55,16 @@ public class RegisteredMember extends HttpServlet {
 		String password = request.getParameter("password");
 		String username = request.getParameter("username");
 		String type = request.getParameter("type");
+//		System.out.println("type=" + type.equals("Google"));
+//		System.out.println("username=" + username);
+//		System.out.println("password=" + password);
 
 		// ==============================/取值=======================
 
 		// ===============================處理資料====================
-		if (account != "" && password != "") {
-			if (type == null || type.length() == 0) {
-				type = "General";
-			}
+		if (password != null) {
+
+			type = "General";
 
 			// ==============設定創建帳號時間=======================
 
@@ -174,6 +177,58 @@ public class RegisteredMember extends HttpServlet {
 			} catch (MessagingException e) {
 				throw new RuntimeException(e);
 			}
+
+		} else if (type.equals("Google") || type.equals("Facebook")) {
+
+			// ==============設定創建帳號時間=======================
+			Calendar rightNow = Calendar.getInstance();
+			String registeredtime = rightNow.get(Calendar.YEAR) + "-" + (rightNow.get(Calendar.MONTH) + 1) + "-"
+					+ rightNow.get(Calendar.DATE) + " " + rightNow.get(Calendar.HOUR) + ":"
+					+ rightNow.get(Calendar.MINUTE) + ":" + rightNow.get(Calendar.SECOND);
+			// ==============/設定創建帳號時間=======================
+
+			// ==============密碼加密=======================
+			int isactive = 0;
+			String key = "MickeyKittyLouis";
+			String password_AES = CipherUtils.encryptString(key, account).replaceAll("[\\pP\\p{Punct}]", "")
+					.replace(" ", "");
+			// ==============/密碼加密=======================
+
+			// ==============設定token====================
+			KeyGenerator keyGen;
+			String tokenFormat = null;
+			try {
+				keyGen = KeyGenerator.getInstance("AES");
+				keyGen.init(256, new SecureRandom());
+				SecretKey secretKey = keyGen.generateKey();
+				byte[] iv = new byte[16];
+				SecureRandom prng = new SecureRandom();
+				prng.nextBytes(iv);
+				Long math = Long.valueOf((long) (Math.random() * 999999999));
+				String token_notformat = AES_CBC_PKCS5PADDING.Encrypt(secretKey, iv, math.toString());
+				tokenFormat = token_notformat.replaceAll("[\\pP\\p{Punct}]", "").replace(" ", "");
+
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
+			// ==============/設定token====================
+
+			IMemberDao MemDao = (IMemberDao) context.getBean("memberDaoJdbcImpl");
+
+			Member mem = context.getBean(Member.class);
+
+			mem.setAccount(account);
+			mem.setUsername(username);
+			mem.setIsactive(0);
+			mem.setPassword(password_AES);
+			mem.setRegisteredtime(registeredtime);
+			mem.setToken(tokenFormat);
+			mem.setType(type);
+
+			Integer memberID = MemDao.add(mem);
+			System.out.println("memberID=" + memberID);
+			response.getWriter().write(memberID.toString());
 
 		} else {
 			System.out.println("甚麼資料都沒有");

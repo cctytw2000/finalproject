@@ -69,64 +69,29 @@ public class InsertMemberImfo extends HttpServlet {
 		} else {
 			System.out.println("第三方帳號");
 			WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-
-			// ==============設定創建帳號時間=======================
-			Calendar rightNow = Calendar.getInstance();
-			String registeredtime = rightNow.get(Calendar.YEAR) + "-" + (rightNow.get(Calendar.MONTH) + 1) + "-"
-					+ rightNow.get(Calendar.DATE) + " " + rightNow.get(Calendar.HOUR) + ":"
-					+ rightNow.get(Calendar.MINUTE) + ":" + rightNow.get(Calendar.SECOND);
-			// ==============/設定創建帳號時間=======================
-
-			// ==============密碼加密=======================
-			int isactive = 0;
-			String key = "MickeyKittyLouis";
-			String password_AES = CipherUtils.encryptString(key, account).replaceAll("[\\pP\\p{Punct}]", "")
-					.replace(" ", "");
-			// ==============/密碼加密=======================
-
-			// ==============設定token====================
-			KeyGenerator keyGen;
-			String tokenFormat = null;
-			try {
-				keyGen = KeyGenerator.getInstance("AES");
-				keyGen.init(256, new SecureRandom());
-				SecretKey secretKey = keyGen.generateKey();
-				byte[] iv = new byte[16];
-				SecureRandom prng = new SecureRandom();
-				prng.nextBytes(iv);
-				Long math = Long.valueOf((long) (Math.random() * 999999999));
-				String token_notformat = AES_CBC_PKCS5PADDING.Encrypt(secretKey, iv, math.toString());
-				tokenFormat = token_notformat.replaceAll("[\\pP\\p{Punct}]", "").replace(" ", "");
-
-			} catch (Exception e) {
-
-				e.printStackTrace();
-			}
-			// ==============/設定token====================
-
+		
+		
+			
+			
+			
+			IMemberDetailDao MDDao = (IMemberDetailDao) context.getBean("memberDetailDaoJdbcImpl");
 			IMemberDao MemDao = (IMemberDao) context.getBean("memberDaoJdbcImpl");
-			String type = request.getParameter("type");
 			MemberDetail md = context.getBean(MemberDetail.class);
 			Member mem = context.getBean(Member.class);
 
-			mem.setAccount(account);
-			mem.setUsername(username);
-			mem.setIsactive(0);
-			mem.setPassword(password_AES);
-			mem.setRegisteredtime(registeredtime);
-			mem.setToken(tokenFormat);
-			mem.setType(type);
+			mem.setMember_id(Integer.valueOf(memberID));
+			Member member = MemDao.fintById(mem);
 
 			md.setAddress(alladdress);
 			md.setBirth(birth);
 			md.setIdnumber(idnumber);
 			md.setSex(sex);
-			mem.setMemberdetail(md);
-			md.setMember(mem);
+	
+			md.setMember(member);
 
-			MemDao.add(mem);
+			MDDao.add(md);
 
-			MemDao.openActive(mem);
+			MemDao.openActive(member);
 
 			request.setAttribute("msg", "已完成輸入會員資料及開通帳號");
 			RequestDispatcher rd = request.getRequestDispatcher("member/jump.jsp");

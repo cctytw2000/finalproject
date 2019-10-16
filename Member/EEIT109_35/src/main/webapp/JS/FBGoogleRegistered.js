@@ -48,13 +48,19 @@ function FBRestistered() {
 						type: "POST",
 						success: function (data) {
 							if (data == "true") {
-								location.href = "http://localhost:8080/EEIT109_35/member/insertMemberDetail.jsp?account="
-									+ response.email
-									+ "&username="
-									+ response.name
-									+ "&type=" 
-									+ "Facebook"
-									
+								$.ajax({
+										url: "RegisteredMember.do",
+										data: {
+											account: response.email,
+											username: response.name ,
+											type: "Facebook"
+										},
+										type: "POST",
+										success: function (data) {
+								
+											location.href = "http://localhost:8080/EEIT109_35/member/insertMemberDetail.jsp?id="+data
+										}
+									})		
 							} else {
 								alert("此帳號已重複註冊，請登入")
 								location.href = "home.jsp"
@@ -141,18 +147,33 @@ function GoogleRestistered() {
 							success: function (data) {
 								if (data == "true") {
 								
-									location.href = "http://localhost:8080/EEIT109_35/member/insertMemberDetail.jsp?account="
-										+ user_info.emails[0].value
-										+ "&username="
-										+ user_info.displayName
-										+ "&type=" + "Google"
+									$.ajax({
+										url: "RegisteredMember.do",
+										data: {
+											account: user_info.emails[0].value,
+											username:user_info.displayName ,
+											type: "Google"
+										},
+										type: "POST",
+										success: function (data) {
+								
+											location.href = "http://localhost:8080/EEIT109_35/member/insertMemberDetail.jsp?id="+data
+										}
+									})
+									
+									
+									//location.href = "http://localhost:8080/EEIT109_35/member/insertMemberDetail.jsp?account="
+									//	+ user_info.emails[0].value
+									//	+ "&username="
+									//	+ user_info.displayName
+									//	+ "&type=" + "Google"
 
 								} else {
 									alert("此帳號已重複註冊，請登入")
 									location.href = "home.jsp"
 								}
 
-								console.log(data)
+								
 							}
 						})
 

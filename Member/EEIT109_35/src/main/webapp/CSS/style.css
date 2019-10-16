@@ -259,6 +259,7 @@ ol {
 	display: inline-block;
 	float: left;
 	padding-top: 6px;
+	margin-left:-100px
 }
 
 .user-panel {
