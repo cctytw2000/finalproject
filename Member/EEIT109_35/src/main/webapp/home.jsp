@@ -6,8 +6,9 @@
 <html>
 
 <head>
+<link href ="favicon.ico" rel="shortcut icon">
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>Game Book</title>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" href="CSS/bootstrap.min.css" />
     <link rel="stylesheet" href="CSS/font-awesome.min.css" />
@@ -45,9 +46,9 @@
                 <c:otherwise>
                     <div class="user-panel">
                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#login">login</button> /
+                            data-target="#login">登入</button> /
                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#Register">Register</button>
+                            data-target="#Register">註冊</button>
                     </div>
                 </c:otherwise>
 
@@ -72,9 +73,11 @@
 
                                     <div class="form-group">
                                         <label for="account">帳號:</label>
-                                        <input type="text" class="form-control" id="account" name="account" style="display:inline"><i
+                                        <input type="text" class="form-control" id="account" name="account" style="display:inline" autocomplete="off"><i
                                             style="margin:-15px" id="check" class="fas fa-clipboard-check"></i><span
                                             style="margin-left:30px" id="account_msg"></span>
+                                            <h6 style="color: gray; font-size: 12px">(1.不可空白，2.至少六個字包含英文字母，數字，特殊字元(!@#$%^&*))
+                                        </h6>
                                     </div>
                                     <div class="form-group">
                                         <label for="password">密碼:</label>
@@ -82,17 +85,16 @@
                                             style="margin:-20px" onclick="showHide();" id="eye"
                                             class="fas fa-eye"></i><span style="margin-left:30px"
                                             id="msg_password"></span>
-                                        <h6 style="color: gray; font-size: 8px">(1.不可空白，2.至少六個字包含英文字母，數字，特殊字元(!@#$%^&*))
-                                        </h6>
+                                       
                                     </div>
 
 
 
                                     <div class="form-group">
                                         <label for="username">姓名:</label>
-                                        <input type="password" class="form-control" id="username" name="username"><span
-                                            id="msg"></span>
-                                        <h6 style="color: gray; font-size: 8px">(1.不可空白，2.至少兩個字以上，3.必須為中文字)</h6>
+                                        <input type="text" class="form-control" id="username" name="username" style="display:inline"><span
+                                            id="msg" style="margin:-15px"></span>
+                                        <h6 style="color: gray; font-size: 12px">(1.不可空白，2.至少兩個字以上，3.必須為中文字)</h6>
                                     </div>
 
                                     <div style="width: 90%;margin-left:30px">
@@ -121,12 +123,7 @@
                                         <button class="btn btn-primary" type="submit" disabled>註冊</button>
                                         <button class="btn btn-secondary" type="reset">清除</button>
                                     </div>
-                                    <!--  
-                                         <div id="submit" class="modal-footer" style="text-align: center">
-                                        <input name="login" class="btn btn-primary"  type="submit" value="登入" disabled> <input class="btn btn-secondary"
-                                            type="reset" value="清除">
-                                    </div>
-                                    -->
+                            
 
 
                                 </fieldset>
@@ -154,12 +151,12 @@
 
 
                                     <div class="form-group">
-                                        <label for="usr">Name:</label>
+                                        <label for="usr">帳號:</label>
                                         <input type="text" class="form-control" id="loginaccount"
                                             name="loginaccount"><span id="passowrd_msg"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="pwd">Password:</label>
+                                        <label for="pwd">密碼:</label>
                                         <input type="password" class="form-control" id="loginpassword"
                                             name="loginpassword"><span id="passowrd_msg"></span>
                                     </div>
@@ -194,12 +191,7 @@
                                 </fieldset>
                             </form>
                         </div>
-                        <!--  
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">login</button>
-                        </div>
-                        -->
+                  
                     </div>
                 </div>
             </div>
