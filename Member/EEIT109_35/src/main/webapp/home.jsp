@@ -6,7 +6,7 @@
 <html>
 
 <head>
-<link href ="favicon.ico" rel="shortcut icon">
+    <link href="favicon.ico" rel="shortcut icon">
     <meta charset="UTF-8">
     <title>Game Book</title>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -20,6 +20,8 @@
     <script src="JS/FBGoogleRegistered.js"></script>
     <script src="https://kit.fontawesome.com/685268963f.js"></script>
     <script src="JS/FBGoogleLogin.js"></script>
+
+    
 </head>
 
 <body>
@@ -73,27 +75,29 @@
 
                                     <div class="form-group">
                                         <label for="account">帳號:</label>
-                                        <input type="text" class="form-control" id="account" name="account" style="display:inline" autocomplete="off"><i
-                                            style="margin:-15px" id="check" class="fas fa-clipboard-check"></i><span
-                                            style="margin-left:30px" id="account_msg"></span>
-                                            <h6 style="color: gray; font-size: 12px">(1.不可空白，2.至少六個字包含英文字母，數字，特殊字元(!@#$%^&*))
+                                        <input type="text" class="form-control" id="account" name="account"
+                                            style="display:inline" autocomplete="off"><i style="margin:-15px" id="check"
+                                            class="fas fa-clipboard-check"></i><span style="margin-left:30px"
+                                            id="account_msg"></span>
+                                        <h6 style="color: gray; font-size: 12px">
+                                            (1.不可空白，2.至少六個字包含英文字母，數字，特殊字元(!@#$%^&*))
                                         </h6>
                                     </div>
                                     <div class="form-group">
                                         <label for="password">密碼:</label>
-                                        <input type="password" class="form-control" id="password" name="password" style="display:inline"><i
-                                            style="margin:-20px" onclick="showHide();" id="eye"
-                                            class="fas fa-eye"></i><span style="margin-left:30px"
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            style="display:inline"><i style="margin:-20px" onclick="showHide();"
+                                            id="eye" class="fas fa-eye"></i><span style="margin-left:30px"
                                             id="msg_password"></span>
-                                       
+
                                     </div>
 
 
 
                                     <div class="form-group">
                                         <label for="username">姓名:</label>
-                                        <input type="text" class="form-control" id="username" name="username" style="display:inline"><span
-                                            id="msg" style="margin:-15px"></span>
+                                        <input type="text" class="form-control" id="username" name="username"
+                                            style="display:inline"><span id="msg" style="margin:-15px"></span>
                                         <h6 style="color: gray; font-size: 12px">(1.不可空白，2.至少兩個字以上，3.必須為中文字)</h6>
                                     </div>
 
@@ -123,7 +127,7 @@
                                         <button class="btn btn-primary" type="submit" disabled>註冊</button>
                                         <button class="btn btn-secondary" type="reset">清除</button>
                                     </div>
-                            
+
 
 
                                 </fieldset>
@@ -145,11 +149,6 @@
                         <div class="modal-body">
                             <form action="LoginMember.do" method="post">
                                 <fieldset>
-
-
-
-
-
                                     <div class="form-group">
                                         <label for="usr">帳號:</label>
                                         <input type="text" class="form-control" id="loginaccount"
@@ -160,12 +159,6 @@
                                         <input type="password" class="form-control" id="loginpassword"
                                             name="loginpassword"><span id="passowrd_msg"></span>
                                     </div>
-
-
-
-
-
-
                                     <div style="width: 90%;margin-left:30px">
                                         <button name="FaceBook" type="button" style="background-color: #0066FF"
                                             class="btn btn-facebook" onclick="FBLogin();">
@@ -191,7 +184,7 @@
                                 </fieldset>
                             </form>
                         </div>
-                  
+
                     </div>
                 </div>
             </div>
@@ -211,6 +204,7 @@
                             <li><a href="community.html">Forums</a></li>
                             <li><a href="contact.html">Contact</a></li>
                             <li><a href="contact.html">會員中心</a></li>
+
                         </ul>
                     </nav>
                 </c:when>
