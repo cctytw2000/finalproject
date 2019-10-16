@@ -12,7 +12,7 @@ import javax.persistence.Table;
 // Test from DavidChen-TP
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
+//  Test from DC Twice
 import com.eeit109team6.memberDetailDao.MemberDetail;
 
 @Component(value = "member")
