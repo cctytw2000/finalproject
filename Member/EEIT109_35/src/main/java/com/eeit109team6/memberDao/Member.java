@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 //  Test from DC Twice
 import com.eeit109team6.memberDetailDao.MemberDetail;
-
+// Test From Git Third
 @Component(value = "member")
 @Scope(value = "prototype")
 @Entity
