@@ -1,5 +1,5 @@
 fieldset {
-	width: 50%;
+	width: 70%;
 	height: 70%;
 	border: 2px solid lightgreen;
 	border-radius: 20px;
@@ -7,13 +7,15 @@ fieldset {
 	padding: auto auto;
 	box-shadow: 5px 5px 5px green;
 }
-
+button, input {
+    overflow: visible;
+    margin-left: 15px;
+}
 .div1 {
 	border-bottom: 2px solid blue;
 	padding-bottom: 20px;
 	margin: 20px;
-	width: 450px;
-	width: 80%
+	width: 90%
 }
 
 .sub1 {

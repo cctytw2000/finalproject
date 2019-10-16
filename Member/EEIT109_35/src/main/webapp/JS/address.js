@@ -1,4 +1,9 @@
 let allAddressText = ""
+let city = ""
+
+	
+	
+
 var CITY = ["--縣/市--", "臺北市", "基隆市", "新北市", "宜蘭縣", "新竹市", "新竹縣", "桃園縣", "苗栗縣",
 	"臺中市", "彰化縣", "南投縣", "嘉義市", "嘉義縣", "雲林縣", "臺南市", "高雄市", "澎湖縣", "屏東縣",
 	"臺東縣", "花蓮縣", "金門縣", "連江縣", "南海諸島"];
@@ -95,19 +100,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 function insertAllAddress() {
-
+console.log(city+" "+TownshipOption )
 	let Township = document.getElementById("Township").value;
-	allAddressText += Township;
+	allAddressText = city + "  " +Township;
 	let address = document.getElementById("alladdress");
+	address.value = ""
 	address.value = allAddressText
 }
 function changeTownship() {
-	let city = document.getElementById("city").value;
-	allAddressText = city + " "
-	let address = document.getElementById("alladdress");
-	address.value = allAddressText
+	 city = document.getElementById("city").value;
+//	allAddressText = city + " "
+//	let address = document.getElementById("alladdress");
+//	address.value = allAddressText
 
-	var TownshipOption = "";
+	TownshipOption = "";
 	document.getElementById("Township").innerHTML = "";
 	for (let i = 0; i < SUB_AREA[CITY.indexOf(city)].length; i++) {
 		TownshipOption += "<option value='"

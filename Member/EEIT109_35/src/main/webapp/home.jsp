@@ -105,9 +105,22 @@
                                     <script async defer src="https://apis.google.com/js/api.js"
                                         onload="this.onload=function(){};HandleGoogleApiLibrary()"
                                         onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-                                    <div id="submit" class="div1" style="text-align: center">
-                                        <button type="submit" disabled>註冊</button>
+                                        
+                                        
+                                        
+                                        
+                                    <div id="submit" class="modal-footer" style="text-align: center">
+                                        <button class="btn btn-primary" type="submit" disabled>註冊</button>
+                                        <button class="btn btn-secondary" type="reset">清除</button>
                                     </div>
+                                    <!--  
+                                         <div id="submit" class="modal-footer" style="text-align: center">
+                                        <input name="login" class="btn btn-primary"  type="submit" value="登入" disabled> <input class="btn btn-secondary"
+                                            type="reset" value="清除">
+                                    </div>
+                                    -->
+                                    
+                                    
                                 </fieldset>
                             </form>
                         </div>
@@ -127,7 +140,22 @@
                         <div class="modal-body">
                             <form action="LoginMember.do" method="post">
                                 <fieldset>
-                                    <legend>登入帳號</legend>
+                           
+                           
+                           
+                           
+                           
+                           <div class="form-group">
+  <label for="usr">Name:</label>
+  <input type="text" class="form-control" id="loginaccount" name="loginaccount"><span id="passowrd_msg"></span>
+</div>
+<div class="form-group">
+  <label for="pwd">Password:</label>
+  <input type="password" class="form-control" id="loginpassword" name="loginpassword"><span id="passowrd_msg"></span>
+</div>
+                           
+
+                           <!--  
                                     <div class="div1">
                                         <label class='label1'>帳號:</label><input type="text" id="loginaccount"
                                             name="loginaccount"><span id="account_msg"></span>
@@ -136,6 +164,10 @@
                                         <label class='label1'>密碼:</label><input type="password" id="loginpassword"
                                             name="loginpassword"><span id="passowrd_msg"></span>
                                     </div>
+                                    -->
+                                    
+                                    
+                                    
                                     <div style="margin: auto auto; width: 60%">
                                         <button name="FaceBook" type="button" style="background-color: #0066FF"
                                             class="btn btn-facebook" onclick="FBLogin();">
@@ -149,17 +181,24 @@
                                     <script async defer src="https://apis.google.com/js/api.js"
                                         onload="this.onload=function(){};HandleGoogleApiLibrary()"
                                         onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-                                    <div id="submit" class="div1" style="text-align: center">
-                                        <input name="login" type="submit" value="登入"> <input name="fergetpwd"
+                                        
+                                        
+                                        
+                                    <div id="submit" class="modal-footer" style="text-align: center">
+                                        <input name="login" class="btn btn-primary"  type="submit" value="登入"> <input class="btn btn-secondary"  name="fergetpwd"
                                             type="submit" value="忘記密碼">
                                     </div>
+                                    
+                                    
                                 </fieldset>
                             </form>
                         </div>
+                        <!--  
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary">login</button>
                         </div>
+                        -->
                     </div>
                 </div>
             </div>
