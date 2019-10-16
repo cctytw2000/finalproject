@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+// Test from DavidChen-TP
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
