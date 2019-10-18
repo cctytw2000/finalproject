@@ -10,7 +10,7 @@
         
     <context:property-placeholder location="classpath:db.properties"/>
     
-    <context:component-scan base-package="com.eeit109team6.memberDao,com.eeit109team6.memberDetailDao" />
+    <context:component-scan base-package="com.eeit109team6.memberDao,com.eeit109team6.memberDetailDao,com.eeit109team6.LiLoInfoDao" />
    
     <bean id="message" class="java.lang.String"> 
        <constructor-arg value="大家好" />

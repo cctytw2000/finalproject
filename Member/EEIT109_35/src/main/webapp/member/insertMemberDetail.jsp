@@ -41,7 +41,7 @@ color : white ;
     </div>
 
     <!-- Header section -->
-    <header class="header-section">
+    <header style="overflow: hidden;" class="header-section">
         <div class="container">
             <!-- logo -->
             <a class="site-logo" href="../home.jsp">
@@ -53,15 +53,27 @@ color : white ;
                 <i class="fa fa-bars"></i>
             </div>
             <!-- site menu -->
-            <nav class="main-menu">
-                <ul>
-                    <li><a href="../home.jsp">Home</a></li>
-                    <li><a href="review.html">Games</a></li>
-                    <li><a href="categories.html">Blog</a></li>
-                    <li><a href="community.html">Forums</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="#">首頁<span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">最新消息</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">遊戲討論區</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">影片區</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">商城</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
         </div>
     </header>
     <!-- Header section end -->
@@ -137,7 +149,7 @@ color : white ;
 			</div>
 
 			<div class="div1">
-				<label class='label1'>地址:</label> <select id="city">
+				<label class='label1'>地址:</label> <select style="margin-left:15px" id="city">
 					<option value=""></option>
 				</select> <select id="Township">
 					<option value=""></option>

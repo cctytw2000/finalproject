@@ -10,9 +10,9 @@ public interface IMemberDao {
 
 	public void delete(Member m);
 
-	public ArrayList<Member> fintAll();
+	public ArrayList<Member> findAll();
 
-	public Member fintById(Member m);
+	public Member findById(Member m);
 
 	public Member login(Member m);
 
@@ -21,6 +21,8 @@ public interface IMemberDao {
 	public boolean forgetPwd(Member m);
 
 	public Boolean changePwd(Member m);
+
+	public Boolean changePwd(Member m, String oldpassword);
 
 	public boolean checkAccount(Member m);
 

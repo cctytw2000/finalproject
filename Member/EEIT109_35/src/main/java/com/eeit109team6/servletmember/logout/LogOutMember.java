@@ -1,4 +1,4 @@
-package com.eeit109team6.servletmember;
+package com.eeit109team6.servletmember.logout;
 
 import java.io.IOException;
 

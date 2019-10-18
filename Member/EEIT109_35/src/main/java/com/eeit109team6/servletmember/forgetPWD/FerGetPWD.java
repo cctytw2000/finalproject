@@ -1,4 +1,4 @@
-package com.eeit109team6.servletmember;
+package com.eeit109team6.servletmember.forgetPWD;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -29,6 +29,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.eeit109team6.memberDao.IMemberDao;
 import com.eeit109team6.memberDao.Member;
+import com.eeit109team6.servletmember.AES_CBC_PKCS5PADDING;
 
 @WebServlet("/FerGetPWD")
 public class FerGetPWD extends HttpServlet {
@@ -107,8 +108,8 @@ public class FerGetPWD extends HttpServlet {
 				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(account));
 
 				String url = "http://" + request.getServerName() + ":" + request.getServerPort()
-						+ request.getContextPath() + "/member/forgetPWDInsertNewPassowrd.jsp?account=" + account
-						+ "&token=" + mem.getToken();
+						+ request.getContextPath() + "/member/InsertNewPassowrd.jsp?account=" + account
+						+ "&token=" + mem.getToken()+"&type=forget";
 
 				message.setSubject("忘記密碼");
 				message.setText(url);

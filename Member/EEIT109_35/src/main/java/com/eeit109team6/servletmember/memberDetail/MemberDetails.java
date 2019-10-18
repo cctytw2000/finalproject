@@ -1,4 +1,4 @@
-package com.eeit109team6.servletmember;
+package com.eeit109team6.servletmember.memberDetail;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -48,7 +48,7 @@ public class MemberDetails extends HttpServlet {
 
 		IMemberDao MemDao = (IMemberDao) context.getBean("memberDaoJdbcImpl");
 
-		Member member = MemDao.fintById(mem);
+		Member member = MemDao.findById(mem);
 
 		request.setAttribute("memberDetail", member.getMemberdetail());
 		request.setAttribute("member", member);

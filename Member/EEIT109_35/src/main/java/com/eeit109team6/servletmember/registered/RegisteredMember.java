@@ -1,4 +1,4 @@
-package com.eeit109team6.servletmember;
+package com.eeit109team6.servletmember.registered;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -36,6 +36,8 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import com.eeit109team6.memberDao.IMemberDao;
 import com.eeit109team6.memberDao.Member;
 import com.eeit109team6.memberDetailDao.MemberDetail;
+import com.eeit109team6.servletmember.AES_CBC_PKCS5PADDING;
+import com.eeit109team6.servletmember.CipherUtils;
 
 @WebServlet("/RegisteredMember")
 public class RegisteredMember extends HttpServlet {

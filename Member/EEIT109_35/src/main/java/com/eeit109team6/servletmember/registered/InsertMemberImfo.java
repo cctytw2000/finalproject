@@ -1,4 +1,4 @@
-package com.eeit109team6.servletmember;
+package com.eeit109team6.servletmember.registered;
 
 import java.io.IOException;
 import java.security.SecureRandom;
@@ -57,7 +57,7 @@ public class InsertMemberImfo extends HttpServlet {
 			md.setIdnumber(idnumber);
 			md.setSex(sex);
 
-			Member member = MemDao.fintById(mem);
+			Member member = MemDao.findById(mem);
 			md.setMember(member);
 
 			MDDao.add(md);
@@ -80,7 +80,7 @@ public class InsertMemberImfo extends HttpServlet {
 			Member mem = context.getBean(Member.class);
 
 			mem.setMember_id(Integer.valueOf(memberID));
-			Member member = MemDao.fintById(mem);
+			Member member = MemDao.findById(mem);
 
 			md.setAddress(alladdress);
 			md.setBirth(birth);

@@ -1,4 +1,4 @@
-package com.eeit109team6.servletmember;
+package com.eeit109team6.servletmember.forgetPWD;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -17,6 +17,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.eeit109team6.memberDao.IMemberDao;
 import com.eeit109team6.memberDao.Member;
+import com.eeit109team6.servletmember.CipherUtils;
 
 @WebServlet("/forgetPWDInsertNewPassowrd")
 public class forgetPWDInsertNewPassowrd extends HttpServlet {

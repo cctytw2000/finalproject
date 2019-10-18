@@ -1,7 +1,6 @@
-package com.eeit109team6.servletmember;
+package com.eeit109team6.servletmember.login;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,8 +13,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import com.eeit109team6.LiLoInfoDao.ILiLoInforDao;
+import com.eeit109team6.LiLoInfoDao.LiLoInfo;
 import com.eeit109team6.memberDao.IMemberDao;
 import com.eeit109team6.memberDao.Member;
+import com.eeit109team6.servletmember.CipherUtils;
 
 @WebServlet("/LoginMember")
 public class LoginMember extends HttpServlet {
@@ -54,8 +56,13 @@ public class LoginMember extends HttpServlet {
 
 		WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
 		Member mem = context.getBean(Member.class);
-
+		LiLoInfo liloinfo = context.getBean(LiLoInfo.class);
 		IMemberDao MemDao = (IMemberDao) context.getBean("memberDaoJdbcImpl");
+		ILiLoInforDao LiLoDao = (ILiLoInforDao) context.getBean("liLoInforDaoJdbcImpl");
+		
+		
+		
+		
 		mem.setAccount(account);
 		mem.setPassword(password_AES);
 		mem.setType(type);
@@ -63,12 +70,23 @@ public class LoginMember extends HttpServlet {
 		Member member = MemDao.login(mem);
 
 		if (member != null) {
+			String logintime = (String) context.getBean("time");
 			session.setAttribute("username", member.getUsername());
 			session.setAttribute("token", member.getToken());
 			session.setAttribute("account", member.getAccount());
 			session.setAttribute("member_id", member.getMember_id());
+			session.setAttribute("type", type);
+			
+			liloinfo.setMember(member);
+			liloinfo.setLoginTime(logintime);
+			liloinfo.setType("Login");
+			liloinfo.setClientIP(request.getRemoteAddr());
+			liloinfo.setAccountType("General");
+			
+			
 			response.getWriter().write("<script>alert('歡迎光臨');</script>");
-
+			System.out.println("login IP :"+request.getRemoteAddr());
+			LiLoDao.add(liloinfo);
 			request.setAttribute("msg", "歡迎光臨");
 			RequestDispatcher rd = request.getRequestDispatcher("member/jump.jsp");
 			rd.forward(request, response);

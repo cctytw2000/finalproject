@@ -15,7 +15,7 @@
 	</welcome-file-list>
 	<servlet>
 		<servlet-name>demoRegisteredMember</servlet-name>
-		<servlet-class>com.eeit109team6.servletmember.RegisteredMember</servlet-class>
+		<servlet-class>com.eeit109team6.servletmember.registered.RegisteredMember</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>demoRegisteredMember</servlet-name>
@@ -25,7 +25,7 @@
 	
 		<servlet>
 		<servlet-name>demoFBOrGoogleLogin</servlet-name>
-		<servlet-class>com.eeit109team6.servletmember.FBOrGoogleLogin</servlet-class>
+		<servlet-class>com.eeit109team6.servletmember.login.FBOrGoogleLogin</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>demoFBOrGoogleLogin</servlet-name>
@@ -34,11 +34,21 @@
 	
 	
 	
+		<servlet>
+		<servlet-name>DemoChangePassword</servlet-name>
+		<servlet-class>com.eeit109team6.servletmember.changePassword.ChangePassword</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DemoChangePassword</servlet-name>
+		<url-pattern>/ChangePassword.do</url-pattern>
+	</servlet-mapping>
+	
+	
 	
 	
 	<servlet>
 		<servlet-name>LoginMember</servlet-name>
-		<servlet-class>com.eeit109team6.servletmember.LoginMember</servlet-class>
+		<servlet-class>com.eeit109team6.servletmember.login.LoginMember</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoginMember</servlet-name>
@@ -47,7 +57,7 @@
 	
 	<servlet>
 		<servlet-name>InsertMemberImfo</servlet-name>
-		<servlet-class>com.eeit109team6.servletmember.InsertMemberImfo</servlet-class>
+		<servlet-class>com.eeit109team6.servletmember.registered.InsertMemberImfo</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>InsertMemberImfo</servlet-name>
@@ -56,7 +66,7 @@
 
 	<servlet>
 		<servlet-name>LogOutMember</servlet-name>
-		<servlet-class>com.eeit109team6.servletmember.LogOutMember</servlet-class>
+		<servlet-class>com.eeit109team6.servletmember.logout.LogOutMember</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>LogOutMember</servlet-name>
@@ -64,7 +74,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>FerGetPWD</servlet-name>
-		<servlet-class>com.eeit109team6.servletmember.FerGetPWD</servlet-class>
+		<servlet-class>com.eeit109team6.servletmember.forgetPWD.FerGetPWD</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>FerGetPWD</servlet-name>
@@ -72,7 +82,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>forgetPWDInsertNewPassowrd</servlet-name>
-		<servlet-class>com.eeit109team6.servletmember.forgetPWDInsertNewPassowrd</servlet-class>
+		<servlet-class>com.eeit109team6.servletmember.forgetPWD.forgetPWDInsertNewPassowrd</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>forgetPWDInsertNewPassowrd</servlet-name>
@@ -80,7 +90,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>Check_Repeat</servlet-name>
-		<servlet-class>com.eeit109team6.servletmember.Check_Repeat</servlet-class>
+		<servlet-class>com.eeit109team6.servletmember.registered.Check_Repeat</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Check_Repeat</servlet-name>
@@ -89,7 +99,7 @@
 
 	<servlet>
 		<servlet-name>MemberDetails</servlet-name>
-		<servlet-class>com.eeit109team6.servletmember.MemberDetails</servlet-class>
+		<servlet-class>com.eeit109team6.servletmember.memberDetail.MemberDetails</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>MemberDetails</servlet-name>

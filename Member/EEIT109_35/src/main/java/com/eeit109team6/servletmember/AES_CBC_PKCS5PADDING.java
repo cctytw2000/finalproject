@@ -8,7 +8,7 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 
-class AES_CBC_PKCS5PADDING {
+public class AES_CBC_PKCS5PADDING {
 
 	public static String Encrypt(SecretKey secretKey, byte[] iv, String msg) throws Exception {
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
